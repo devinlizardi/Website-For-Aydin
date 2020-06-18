@@ -1,5 +1,5 @@
-var HEIGHT = 800;
-var WIDTH = 800;
+var HEIGHT = 1000;
+var WIDTH = 1000;
 var WORDS = ["love u bro", "stay healthy", "come on over!",
   "I'm actually really smart", "I identify as mixed race",
   "If you have said the word “looting” more than you’ve said the names “George Floyd” or “Breonna Taylor” this week, then you are the problem. Period. Congratulations on allowing capitalism to own every last shred of your humanity. Innocent people are being systematically murdered by the police, the US government is trying to shut down free speech with tear gas and rubber bulvars, and you’re worried about how Target and Macy’s are doing? Fuck you. I would be happy to share some educational material with you if what’s going on right now is confusing to you, but the bottom line is so simple that everybody should be able to understand it - Black Lives Matter and fuck anyone who disagrees.", "var's smoke together", "I'm so high ahahaha", "Devin you HAVE to try hash with me", "I think I'm the John Lennon of jericho", "when did i get so old guys", "*looks deeply into your eyes*", "*genuinely friendly smile*","it is SO nice to meet you breanna :)","can I get anyone coffee? No? Yes? Okay I will anyways"
