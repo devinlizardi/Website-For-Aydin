@@ -17,6 +17,7 @@ h1 {
 
 canvas {
     display: block;
+    cursor: pointer;
 }
 #sketch-div {
     position: fixed;
