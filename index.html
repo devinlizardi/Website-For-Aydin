@@ -5,6 +5,13 @@
         <script src="p5.js"></script>
         <script src="p5.sound.min.js"></script>
         <script src="sketch.js"></script>
+        
+        <script>
+        window.addEventListener("click", event => {
+            document.getElementById("click-info").style.display = "none";
+        });
+        </script>
+        
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="utf-8">
     </head>
@@ -12,7 +19,7 @@
     <body>
         <h1>Things Aydin Says</h1>
         <div id="sketch-div">
+            <h3 id="click-info">just click anywhere</h3>
         </div>
     </body>
-    
 </html>

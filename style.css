@@ -11,8 +11,21 @@ h1 {
     font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
-    line-height: 26.4px;
+    line-height: 20px;
     color: white;
+}
+
+#click-info { 
+    font-family: Consolas, monaco, monospace; 
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 0px;
+    color: white;
+    display: block;
+    text-align: center;
+    margin-left: -515px;
 }
 
 canvas {
