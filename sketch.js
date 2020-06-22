@@ -1,8 +1,8 @@
-var HEIGHT = 1000;
-var WIDTH = 1000;
+var HEIGHT = 800;
+var WIDTH = 1400;
 var WORDS = ["love u bro", "stay healthy", "come on over!",
   "I'm actually really smart", "I identify as mixed race",
-  "If you have said the word “looting” more than you’ve said the names “George Floyd” or “Breonna Taylor” this week, then you are the problem. Period. Congratulations on allowing capitalism to own every last shred of your humanity. Innocent people are being systematically murdered by the police, the US government is trying to shut down free speech with tear gas and rubber bulvars, and you’re worried about how Target and Macy’s are doing? Fuck you. I would be happy to share some educational material with you if what’s going on right now is confusing to you, but the bottom line is so simple that everybody should be able to understand it - Black Lives Matter and fuck anyone who disagrees.", "var's smoke together", "I'm so high ahahaha", "Devin you HAVE to try hash with me", "I think I'm the John Lennon of jericho", "when did i get so old guys", "*looks deeply into your eyes*", "*genuinely friendly smile*","it is SO nice to meet you breanna :)","can I get anyone coffee? No? Yes? Okay I will anyways"
+  "If you have said the word “looting” more than you’ve said the names “George Floyd” or “Breonna Taylor” this week, then you are the problem. Period. Congratulations on allowing capitalism to own every last shred of your humanity. Innocent people are being systematically murdered by the police, the US government is trying to shut down free speech with tear gas and rubber bulvars, and you’re worried about how Target and Macy’s are doing? Fuck you. I would be happy to share some educational material with you if what’s going on right now is confusing to you, but the bottom line is so simple that everybody should be able to understand it - Black Lives Matter and fuck anyone who disagrees.", "let's smoke together", "I'm so high ahahaha", "Devin you should to try hash with me", "I think I'm the John Lennon of jericho", "when did i get so old guys", "*looks deeply into your eyes*", "*genuinely friendly smile*","it is SO nice to meet you breanna","can I get anyone coffee? No? Yes? \nOkay I will anyways", "*whimper while covered in water*","Have you ever done DMT?","want me to teach you guitar?","we HAVE to jam sometime","hi \n\n (this one from enrique)","somebody needed a pan?","yeah I'll come pick you up, it's only \n an hour away!","dude I totally understand what you mean!","do you need something? I can get it."
 ];
 
 var ayboi;
@@ -18,47 +18,54 @@ var bh_y;
 var jitterX;
 var jitterY;
 
+var myCanvas;
+
 function setup() {
-  createCanvas(HEIGHT, WIDTH);
+  //var div0 = createDiv('this is the parent');
+  //var div1 = createDiv('this is the child');
+  //div1.parent(div0);
+    
+  myCanvas = createCanvas(WIDTH, HEIGHT);
+  myCanvas.parent('sketch-div');
   textSize(30);
 
   ayboi = new Aydin();
 
   tophalf = loadImage("tophead.png");
-  bothalf = loadImage("bottomhead.png")
-  lsd = loadImage("aydinbg.png")
+  bothalf = loadImage("bottomhead.png");
+  lsd = loadImage("aydinbg.png");
 
   bh_y = -20;
   jitterX = 0;
   jitterY = 0;
-  lovers = []
+  lovers = [];
   num_love = 0;
   tripcounter = false;
 }
 
 function draw() {
   background("#add8e6");
-  push()
+  push();
 
   if (tripcounter) {
-    tripJitter()
-    blendMode(DIFFERENCE)
-    image(lsd, -200 + jitterX / 5, 0 + jitterY / 5)
+    tripJitter();
+    blendMode(DIFFERENCE);
+    image(lsd, -200 + jitterX / 5, 0 + jitterY / 5);
   } else {
-    push()
+    push();
     blendMode(EXCLUSION);
-    image(lsd, -200, 0)
-    pop()
+    image(lsd, -200, 0);
+    pop();
   }
 
-  ayboi.update()
+  ayboi.update();
 
   for (var i = 0; i < lovers.length; i++) {
-    lovers[i].update()
+    lovers[i].update();
   }
 
-  pop()
-  areWeTrippin()
+  pop();
+  areWeTrippin();
 }
 
 function mousePressed() {
@@ -70,7 +77,7 @@ function mousePressed() {
     bh_y -= 6;
     num_love += 2;
   }
-  print(num_love)
+  print(num_love);
 }
 
 function areWeTrippin() {
@@ -94,7 +101,7 @@ function removeLove() {
 class Love {
   constructor() {
     this.word = random(WORDS)
-    this.pos = createVector(width / 2, height / 2)
+    this.pos = createVector(WIDTH / 2, HEIGHT / 2)
     this.oldPosx = mouseX
     this.oldPosy = mouseY
     this.rotation = ayboi.radians
@@ -106,7 +113,7 @@ class Love {
     this.pos.x += cos(this.rotation) * this.speed;
     this.pos.y += sin(this.rotation) * this.speed;
     text(this.word, this.pos.x, this.pos.y, 800, 500);
-    if (this.pos.x > 0 && this.pos.x < width && this.pos.y > 0 && this.pos.x < height) {} else {
+    if (this.pos.x > 0 && this.pos.x < WIDTH && this.pos.y > 0 && this.pos.y < HEIGHT) {} else {
       removeLove()
     }
     pop()
@@ -115,7 +122,7 @@ class Love {
 
 class Aydin {
   constructor() {
-    this.pos = createVector(width / 2, height / 2);
+    this.pos = createVector(WIDTH / 2, HEIGHT / 2);
     this.r = 60;
     this.direction = 0;
     this.radians = 0;
