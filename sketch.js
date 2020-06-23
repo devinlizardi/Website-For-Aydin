@@ -23,8 +23,8 @@ var jitterY;
 var myCanvas;
 
 function setup() {
-  WIDTH = displayWidth;
-  HEIGHT = displayHeight;
+  WIDTH = displayWidth+100;
+  HEIGHT = displayHeight+100;
     
   //var div0 = createDiv('this is the parent');
   //var div1 = createDiv('this is the child');
@@ -73,7 +73,40 @@ function draw() {
   areWeTrippin();
 }
 
-function mousePressed() {
+//function mousePressed() {
+//  switch(num_love) {
+//  case 10:
+//    lovers.push(new Love(word_sequence[0]))
+//    break;
+//  case 11:
+//    lovers.push(new Love(word_sequence[1]))
+//    break;
+//  case 12:
+//    lovers.push(new Love(word_sequence[2]))
+//    break;
+//  case 13:
+//    lovers.push(new Love(word_sequence[3]))
+//    break;
+//  case 14:
+//    lovers.push(new Love(word_sequence[4]))
+//    break;
+//  case 15:
+//    lovers.push(new Love(word_sequence[5]))
+//    break;
+//  default: 
+//    lovers.push(new Love(random(WORDS)));
+//    break;
+//  }
+//  if (!tripcounter) {
+//    bh_y += 2;
+//    num_love += 1;
+//  } else {
+//    bh_y -= 6;
+//    num_love += 2;
+//  }
+//}
+
+function touchStarted() {
   switch(num_love) {
   case 10:
     lovers.push(new Love(word_sequence[0]))
