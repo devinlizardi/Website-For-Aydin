@@ -17,6 +17,7 @@ var bothalf;
 var lsd;
 var tripcounter;
 var bh_y;
+var mob_offset;
 
 var jitterX;
 var jitterY;
@@ -46,9 +47,11 @@ function setup() {
     bothalf.resize(100, 0);
     textSize(15);
     love_speed = 2;
+    mob_offset = -200;
   } else {
     textSize(30);
     love_speed = 4;
+    mob_offset = 0;
   }
   
   ayboi = new Aydin();
@@ -68,11 +71,11 @@ function draw() {
   if (tripcounter) {
     tripJitter();
     blendMode(DIFFERENCE);
-    image(lsd, jitterX / 5, jitterY / 5);
+    image(lsd, mob_offset + jitterX / 5, jitterY / 5);
   } else {
     push();
     blendMode(EXCLUSION);
-    image(lsd, 0, 0);
+    image(lsd, mob_offset, 0);
     pop();
   }
 
