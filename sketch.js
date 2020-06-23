@@ -29,15 +29,20 @@ function preload() {
 }
 
 function setup() {
-  WIDTH = displayWidth+100;
-  HEIGHT = displayHeight+100;
+  WIDTH = displayWidth;
+  HEIGHT = displayHeight;
+    
+  console.log("scale info width")
+  console.log(WIDTH)
+  console.log("scale info height")
+  console.log(HEIGHT)
     
   tophalf.resize(100, 0);
   bothalf.resize(100, 0);
     
   myCanvas = createCanvas(WIDTH, HEIGHT);
   myCanvas.parent('sketch-div');
-  textSize(30);
+  textSize(15);
 
   ayboi = new Aydin();
 
@@ -50,7 +55,8 @@ function setup() {
 }
 
 function draw() {
-  background("#add8e6");
+  //background("#add8e6");
+  background(lsd)
   push();
 
   if (tripcounter) {
