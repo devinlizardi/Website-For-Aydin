@@ -25,7 +25,6 @@ h1 {
     color: white;
     display: block;
     text-align: center;
-    margin-left: -515px;
 }
 
 canvas {
@@ -33,9 +32,8 @@ canvas {
     cursor: pointer;
 }
 #sketch-div {
-    position: fixed;
-    left: 50%;
-    margin-left: -700px;
+    position: static;
+    margin: 0px;
     width: 100%;
     height: 100%;
 }
