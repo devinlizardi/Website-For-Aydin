@@ -31,19 +31,23 @@ function preload() {
 function setup() {
   WIDTH = displayWidth;
   HEIGHT = displayHeight;
+  myCanvas = createCanvas(WIDTH, HEIGHT);
+  myCanvas.parent('sketch-div');
     
   console.log("scale info width")
   console.log(WIDTH)
   console.log("scale info height")
   console.log(HEIGHT)
     
-  tophalf.resize(100, 0);
-  bothalf.resize(100, 0);
-    
-  myCanvas = createCanvas(WIDTH, HEIGHT);
-  myCanvas.parent('sketch-div');
-  textSize(15);
 
+  if (HEIGHT < 1000){    
+    tophalf.resize(100, 0);
+    bothalf.resize(100, 0);
+    textSize(15);
+  } else {
+    textSize(30);
+  }
+  
   ayboi = new Aydin();
 
   bh_y = -20;
@@ -55,8 +59,7 @@ function setup() {
 }
 
 function draw() {
-  //background("#add8e6");
-  background(lsd)
+  background("#add8e6");
   push();
 
   if (tripcounter) {
@@ -138,14 +141,14 @@ class Love {
     this.oldPosx = mouseX
     this.oldPosy = mouseY
     this.rotation = ayboi.radians
-    this.speed = 4;
+    this.speed = 2;
   }
   update() {
     push()
     fill(255)
     this.pos.x += cos(this.rotation) * this.speed;
     this.pos.y += sin(this.rotation) * this.speed;
-    text(this.word, this.pos.x, this.pos.y, 800, 500);
+    text(this.word, this.pos.x, this.pos.y, 500, 700);
     if (this.pos.x > 0 && this.pos.x < WIDTH && this.pos.y > 0 && this.pos.y < HEIGHT) {} else {
       removeLove()
     }

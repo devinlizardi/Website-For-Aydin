@@ -7,7 +7,7 @@ html, body {
 
 h1 { 
     font-family: Consolas, monaco, monospace; 
-    font-size: 36px; 
+    font-size: 24px; 
     font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
@@ -17,7 +17,7 @@ h1 {
 
 #click-info { 
     font-family: Consolas, monaco, monospace; 
-    font-size: 24px; 
+    font-size: 18px; 
     font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
