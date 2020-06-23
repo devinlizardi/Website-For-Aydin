@@ -10,6 +10,7 @@ var word_sequence = ["Yeah, have some of these edibles Devin","haha they're real
 var ayboi;
 var lovers;
 var num_love;
+var love_speed;
 
 var tophalf;
 var bothalf;
@@ -34,18 +35,20 @@ function setup() {
   myCanvas = createCanvas(WIDTH, HEIGHT);
   myCanvas.parent('sketch-div');
     
-  console.log("scale info width")
-  console.log(WIDTH)
-  console.log("scale info height")
-  console.log(HEIGHT)
+  console.log("scale info width");
+  console.log(WIDTH);
+  console.log("scale info height");
+  console.log(HEIGHT);
     
 
   if (HEIGHT < 1000){    
     tophalf.resize(100, 0);
     bothalf.resize(100, 0);
     textSize(15);
+    love_speed = 2;
   } else {
     textSize(30);
+    love_speed = 4;
   }
   
   ayboi = new Aydin();
@@ -65,11 +68,11 @@ function draw() {
   if (tripcounter) {
     tripJitter();
     blendMode(DIFFERENCE);
-    image(lsd, -200 + jitterX / 5, 0 + jitterY / 5);
+    image(lsd, jitterX / 5, jitterY / 5);
   } else {
     push();
     blendMode(EXCLUSION);
-    image(lsd, -200, 0);
+    image(lsd, 0, 0);
     pop();
   }
 
@@ -86,25 +89,25 @@ function draw() {
 function touchStarted() {
   switch(num_love) {
   case 10:
-    lovers.push(new Love(word_sequence[0]))
+    lovers.push(new Love(word_sequence[0], love_speed));
     break;
   case 11:
-    lovers.push(new Love(word_sequence[1]))
+    lovers.push(new Love(word_sequence[1], love_speed));
     break;
   case 12:
-    lovers.push(new Love(word_sequence[2]))
+    lovers.push(new Love(word_sequence[2], love_speed));
     break;
   case 13:
-    lovers.push(new Love(word_sequence[3]))
+    lovers.push(new Love(word_sequence[3], love_speed));
     break;
   case 14:
-    lovers.push(new Love(word_sequence[4]))
+    lovers.push(new Love(word_sequence[4], love_speed));
     break;
   case 15:
-    lovers.push(new Love(word_sequence[5]))
+    lovers.push(new Love(word_sequence[5], love_speed));
     break;
   default: 
-    lovers.push(new Love(random(WORDS)));
+    lovers.push(new Love(random(WORDS), love_speed));
     break;
   }
   if (!tripcounter) {
@@ -131,17 +134,17 @@ function tripJitter() {
 }
 
 function removeLove() {
-  lovers.shift()
+  lovers.shift();
 }
 
 class Love {
-  constructor(word) {
+  constructor(word, speed) {
     this.word = word;
-    this.pos = createVector(WIDTH / 2, HEIGHT / 2)
-    this.oldPosx = mouseX
-    this.oldPosy = mouseY
-    this.rotation = ayboi.radians
-    this.speed = 2;
+    this.speed = speed;
+    this.pos = createVector(WIDTH / 2, HEIGHT / 2);
+    this.oldPosx = mouseX;
+    this.oldPosy = mouseY;
+    this.rotation = ayboi.radians;
   }
   update() {
     push()
@@ -150,9 +153,9 @@ class Love {
     this.pos.y += sin(this.rotation) * this.speed;
     text(this.word, this.pos.x, this.pos.y, 500, 700);
     if (this.pos.x > 0 && this.pos.x < WIDTH && this.pos.y > 0 && this.pos.y < HEIGHT) {} else {
-      removeLove()
+      removeLove();
     }
-    pop()
+    pop();
   }
 }
 
@@ -175,8 +178,6 @@ class Aydin {
     imageMode(CENTER);
     image(tophalf, 0 + jitterX, -20 + jitterX);
     image(bothalf, 0 + jitterX, bh_y + jitterY);
-    // triangle(-this.r / 2, this.r / 2, this.r / 2, this.r / 2, 0, -this.r / 2);
-    // ellipse(0, 0, this.r, this.r);
     pop();
   }
 }
