@@ -22,23 +22,24 @@ var jitterY;
 
 var myCanvas;
 
+function preload() {
+  tophalf = loadImage("tophead.png");
+  bothalf = loadImage("bottomhead.png");
+  lsd = loadImage("aydinbg.png");
+}
+
 function setup() {
   WIDTH = displayWidth+100;
   HEIGHT = displayHeight+100;
     
-  //var div0 = createDiv('this is the parent');
-  //var div1 = createDiv('this is the child');
-  //div1.parent(div0);
+  tophalf.resize(100, 0);
+  bothalf.resize(100, 0);
     
   myCanvas = createCanvas(WIDTH, HEIGHT);
   myCanvas.parent('sketch-div');
   textSize(30);
 
   ayboi = new Aydin();
-
-  tophalf = loadImage("tophead.png");
-  bothalf = loadImage("bottomhead.png");
-  lsd = loadImage("aydinbg.png");
 
   bh_y = -20;
   jitterX = 0;
@@ -72,39 +73,6 @@ function draw() {
   pop();
   areWeTrippin();
 }
-
-//function mousePressed() {
-//  switch(num_love) {
-//  case 10:
-//    lovers.push(new Love(word_sequence[0]))
-//    break;
-//  case 11:
-//    lovers.push(new Love(word_sequence[1]))
-//    break;
-//  case 12:
-//    lovers.push(new Love(word_sequence[2]))
-//    break;
-//  case 13:
-//    lovers.push(new Love(word_sequence[3]))
-//    break;
-//  case 14:
-//    lovers.push(new Love(word_sequence[4]))
-//    break;
-//  case 15:
-//    lovers.push(new Love(word_sequence[5]))
-//    break;
-//  default: 
-//    lovers.push(new Love(random(WORDS)));
-//    break;
-//  }
-//  if (!tripcounter) {
-//    bh_y += 2;
-//    num_love += 1;
-//  } else {
-//    bh_y -= 6;
-//    num_love += 2;
-//  }
-//}
 
 function touchStarted() {
   switch(num_love) {
